@@ -1,7 +1,9 @@
-application: testing
-env: flex
-entrupoint: gumicorn -b $PORT testing:app
-version: 1
-runtime: pytohn27
+runtime: python27
 api_version: 1
-threadsafe: false
+threadsafe: true
+
+handlers:
+- url: /static
+  static_dir: static
+- url: /.*
+  script: main.app
